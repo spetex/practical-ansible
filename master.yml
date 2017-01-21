@@ -1,0 +1,7 @@
+---
+- name: Setup all my servers on AWS
+  hosts: amatux
+  become: yes
+
+  roles:
+    - common

@@ -1,0 +1,7 @@
+# Common Handlers
+---
+  - name: load iptables from file
+    shell: 'iptables-restore < /etc/sysconfig/iptables'
+
+  - name: restart fail2ban
+    service: name=fail2ban state=restarted

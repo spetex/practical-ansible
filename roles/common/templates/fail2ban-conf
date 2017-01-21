@@ -1,0 +1,6 @@
+# {{ ansible_managed }}
+[DEFAULT]
+bantime = {{ fail2ban_bantime }}
+destemail = {{ fail2ban_senderemail }}
+sendername = {{ fail2ban_sendername }}
+action = {{ fail2ban_action }}

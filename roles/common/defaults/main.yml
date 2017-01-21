@@ -1,0 +1,7 @@
+---
+fail2ban_bantime: 1800
+fail2ban_maxretry: 3
+fail2ban_sendername: 'Fail2Ban'
+fail2ban_senderemail: 'mail@spetex.cz'
+fail2ban_action: '%(action_mwl)s'
+

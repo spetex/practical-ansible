@@ -1,0 +1,36 @@
+# Common Tasks
+---
+  - name: ensure iptables is present
+    apt:
+      name: iptables
+      state: present
+
+  - name: ensure iptables-persistent is present
+    apt:
+      name: iptables-persistent
+      state: present
+
+  - name: ensure fail2ban is present
+    apt:
+      name: fail2ban
+      state: present
+
+  - name: ensure sendmail is present
+    apt:
+      name: sendmail
+      state: present
+
+  - name: setup iptables
+    template:
+      src: iptables-conf
+      dest: '/etc/iptables/rules.v4'
+      mode: '0644'
+    notify:
+    - load iptables from file
+
+  - name: setup fail2ban
+    template:
+      src: fail2ban-conf
+      dest: '/etc/fail2ban/jail.local'
+      mode: '0644'
+    notify: restart fail2ban
