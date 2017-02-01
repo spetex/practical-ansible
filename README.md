@@ -1,4 +1,5 @@
 # practical-ansible
+[![CircleCI](https://circleci.com/gh/spetex/practical-ansible/tree/master.svg?style=svg)](https://circleci.com/gh/spetex/practical-ansible/tree/master)
 
 Hello, this is a practical setup for personal infrastructure.
 

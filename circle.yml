@@ -1,0 +1,12 @@
+machine:
+  python:
+    version: 3.5.0
+
+dependencies:
+  pre:
+    - pip install ansible
+test:
+  pre:
+    - echo localhost > inventory
+  post:
+    - ansible-playbook --syntax-check -i inventory master.yml
