@@ -1,0 +1,7 @@
+---
+- name: Update/Upgrade all servers and reboot if needed
+  hosts: all
+  become: yes
+
+  roles:
+    - update
