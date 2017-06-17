@@ -1,0 +1,23 @@
+---
+
+- name: 'Create super admin group'
+  ldap_entry:
+    state: present
+    dn: '{{ldap_dn_admin_group}}'
+    objectClass:
+      - organizationalUnit
+      - top
+    params:
+      ou: '{{ldap_admin_group}}'
+
+- name: Configure admin user
+  ldap_attr:
+    state: exact
+    dn: olcDatabase={1}mdb,cn=config
+    name: "{{ item.name }}"
+    values: "{{ item.value }}"
+  with_items:
+    - name: olcRootDN
+      value: '{{ldap_dn_bind}}'
+    - name: olcRootPW
+      value: "{{ldap_password}}"

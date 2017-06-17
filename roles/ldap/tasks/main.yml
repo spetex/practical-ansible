@@ -1,0 +1,17 @@
+# Common Tasks
+---
+- fail:
+    msg: You must define organizations
+  when: organizations is not defined
+- fail:
+    msg: You must define base domain
+  when: base_domain is not defined
+
+- include: deps.yml
+- include: config.yml
+- include: structure.yml
+- include: admin.yml
+- include: organization.yml
+  with_items: '{{organizations}}'
+  loop_control:
+    loop_var: organization

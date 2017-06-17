@@ -1,0 +1,25 @@
+---
+- name: 'Create organization {{organization}}'
+  ldap_entry:
+    state: present
+    dn: 'dc={{organization}},{{ldap_base_dc}}'
+    objectClass:
+      - organization
+      - dcObject
+      - top
+    params:
+      o: '{{organization}}'
+
+- name: Create organizational units for {{organization}}
+  ldap_entry:
+    state: present
+    dn: '{{item.dn}}'
+    params:
+      ou: '{{item.ou}}'
+    objectClass:
+      - organizationalUnit
+  with_items:
+    - dn: 'ou=users,dc={{organization}},{{ldap_base_dc}}'
+      ou: users
+    - dn: 'ou=groups,dc={{organization}},{{ldap_base_dc}}'
+      ou: groups
