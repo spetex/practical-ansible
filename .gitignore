@@ -1,2 +1,4 @@
 *.retry
 inventory.yml
+ansible.cfg
+remote

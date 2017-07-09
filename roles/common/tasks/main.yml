@@ -9,6 +9,11 @@
       - iptables-persistent
       - fail2ban
 
+  - name: ensure sendmail is absent
+    apt:
+      name: sendmail
+      state: absent
+
   - name: setup iptables
     template:
       src: iptables-conf

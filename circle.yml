@@ -5,6 +5,7 @@ machine:
 dependencies:
   pre:
     - pip install ansible
+    - ansible-galaxy install -r requirements.yml -p roles
 test:
   pre:
     - echo localhost > inventory
