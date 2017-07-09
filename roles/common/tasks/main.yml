@@ -1,24 +1,13 @@
 # Common Tasks
 ---
-  - name: ensure iptables is present
+  - name: Install dependencies
     apt:
-      name: iptables
+      name: '{{item}}'
       state: present
-
-  - name: ensure iptables-persistent is present
-    apt:
-      name: iptables-persistent
-      state: present
-
-  - name: ensure fail2ban is present
-    apt:
-      name: fail2ban
-      state: present
-
-  - name: ensure sendmail is present
-    apt:
-      name: sendmail
-      state: present
+    with_items:
+      - iptables
+      - iptables-persistent
+      - fail2ban
 
   - name: setup iptables
     template:
